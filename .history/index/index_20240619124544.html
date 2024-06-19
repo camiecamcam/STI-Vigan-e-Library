@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <html>
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <script src="https://cdn.tailwindcss.com"></script>
+        </head>
+        <body>
+          <div class="flex h-screen bg-zinc-100">
+        
+        <div class="w-64 bg-zinc-800 text-white flex flex-col">
+          <div class="p-4 flex items-center">
+            <img src="https://placehold.co/32" alt="Library Logo" class="w-8 h-8 mr-2">
+            <span class="text-xl font-semibold">Library of STI VI..</span>
+          </div>
+          <nav class="flex-1">
+            <ul>
+              <li class="p-4 hover:bg-zinc-700">
+                <a href="#" class="flex items-center">
+                  <span class="material-icons">dashboard</span>
+                  <span class="ml-4">Dashboard</span>
+                </a>
+              </li>
+              <li class="p-4 hover:bg-zinc-700">
+                <a href="#" class="flex items-center">
+                  <span class="material-icons">book</span>
+                  <span class="ml-4">Catalogs</span>
+                </a>
+              </li>
+              <li class="p-4 hover:bg-zinc-700">
+                <a href="#" class="flex items-center">
+                  <span class="material-icons">swap_horiz</span>
+                  <span class="ml-4">Circulations</span>
+                </a>
+              </li>
+              <li class="p-4 hover:bg-zinc-700">
+                <a href="#" class="flex items-center">
+                  <span class="material-icons">shopping_cart</span>
+                  <span class="ml-4">Procurements</span>
+                </a>
+              </li>
+              <li class="p-4 hover:bg-zinc-700">
+                <a href="#" class="flex items-center">
+                  <span class="material-icons">bar_chart</span>
+                  <span class="ml-4">Reports</span>
+                </a>
+              </li>
+              <li class="p-4 hover:bg-zinc-700">
+                <a href="#" class="flex items-center">
+                  <span class="material-icons">more_horiz</span>
+                  <span class="ml-4">Others</span>
+                </a>
+              </li>
+              <li class="p-4 hover:bg-zinc-700">
+                <a href="#" class="flex items-center">
+                  <span class="material-icons">settings</span>
+                  <span class="ml-4">Manage</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <div class="p-4">
+            <div class="mb-2">
+              <a href="#" class="flex items-center">
+                <span class="material-icons">description</span>
+                <span class="ml-4">Documentation</span>
+              </a>
+            </div>
+            <div>
+              <a href="#" class="flex items-center">
+                <span class="material-icons">help_outline</span>
+                <span class="ml-4">Need support</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="flex-1 flex flex-col">
+          
+          <header class="bg-white shadow p-4 flex justify-between items-center">
+            <h1 class="text-xl font-semibold">Library of STI VIGAN</h1>
+            <div class="flex items-center space-x-4">
+              <a href="#" class="text-zinc-600">OPAC</a>
+              <a href="#" class="text-zinc-600">Discover</a>
+              <a href="#" class="text-zinc-600">
+                <span class="material-icons">notifications</span>
+              </a>
+              <a href="#" class="text-zinc-600">
+                <span class="material-icons">account_circle</span>
+              </a>
+            </div>
+          </header>
+      
+      <main class="p-4 flex-1 overflow-y-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+          <div class="bg-blue-500 text-white p-4 rounded-md">
+            <h2 class="text-lg font-semibold">Opac Stats</h2>
+            <div class="mt-4">
+              <img src="https://placehold.co/300x100" alt="Opac Stats Graph" />
+            </div>
+            <p class="mt-2">Titles: 1</p>
+            <p>Members: 4</p>
+          </div>
+          <div class="bg-teal-500 text-white p-4 rounded-md">
+            <h2 class="text-lg font-semibold">Checkouts</h2>
+            <p class="mt-4">0</p>
+            <p>Running: 0</p>
+          </div>
+          <div class="bg-purple-500 text-white p-4 rounded-md">
+            <h2 class="text-lg font-semibold">Usage (0%)</h2>
+            <img src="https://placehold.co/300x100" alt="Usage Graph" class="mt-4" />
+            <p class="mt-2">Total: 2,000</p>
+          </div>
+        </div>
+        
+        <div class="bg-white p-4 rounded-md shadow mb-4">
+          <h2 class="text-lg font-semibold">Tutorial: Jump Start In Minutes</h2>
+          <p class="mt-2">Please follow the steps below to get started with your Library. It only takes a couple of minutes. Please refresh this page after completing each step.</p>
+          <p class="mt-2 text-yellow-600">⚠️ Add some books to your catalog. Please add 3 more books to make the catalog presentable.</p>
+          <p class="mt-2">You can add items using both our smart add interface and manually by inputting the detail. Confused? please try with the given ISBNs: 9780747549505, 9780199640942, 9780761461708, 1603400370</p>
+          <div class="mt-4">
+            <button class="bg-blue-500 text-white px-4 py-2 rounded-md mr-2">Smart Add</button>
+            <button class="bg-blue-500 text-white px-4 py-2 rounded-md">Manual Add</button>
+          </div>
+        </div>
+        
+        <div class="bg-white p-4 rounded-md shadow mb-4">
+          <h2 class="text-lg font-semibold">New Arrivals</h2>
+          <div class="mt-4 flex items-center">
+            <img src="https://placehold.co/64x64" alt="Book Cover" class="w-16 h-16 mr-4">
+            <p>Working in the Food Service Industry Subject</p>
+          </div>
+          <div class="mt-4">
+            <button class="bg-blue-500 text-white px-4 py-2 rounded-md mr-2">Smart Add</button>
+            <button class="bg-blue-500 text-white px-4 py-2 rounded-md">Catalog</button>
+          </div>
+        </div>
+        
+        <div class="bg-white p-4 rounded-md shadow">
+          <h2 class="text-lg font-semibold">Checkouts</h2>
+          <p class="mt-2">There is no items checked out recently. Sharing feels awesome.</p>
+          <div class="mt-4">
+            <button class="bg-blue-500 text-white px-4 py-2 rounded-md">Check-out</button>
+          </div>
+        </div>
+      </main>
+        </div>
+      </div>
+        </body>
+      </html>
+</head>
+<body>

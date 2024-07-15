@@ -1,0 +1,80 @@
+
+
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Import CSV/XLSX to Firebase</title>
+    <style>
+        body {
+        font-family: Arial, sans-serif;
+        }
+    </style>
+    </head>
+    <body>
+    <h1>Import CSV/XLSX to Firebase</h1>
+    <button id="import-button">Import CSV/XLSX file</button>
+    <div id="status"></div>
+
+    <script type="module">
+ 
+            import { getFirestore, collection, onSnapshot, getDocs, query, where,} from "https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore.js";
+            import { getStorage, ref, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-storage.js";
+            import { getAuth, sendEmailVerification } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-auth.js";
+            import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-auth.js";
+            import { getDatabase } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-database.js";
+        
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-app.js";
+
+    const firebaseConfig = {
+    apiKey: "AIzaSyDeHsOH9pXEAEYNvk29bGi6Ap_rgQ0ouhE",
+    authDomain: "newuielibrary.firebaseapp.com",
+    projectId: "newuielibrary",
+    storageBucket: "newuielibrary.appspot.com",
+    messagingSenderId: "948677801002",
+    appId: "1:948677801002:web:94f241260e9ed8de4cff53"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const usersRef = collection(db, 'users1');
+    const auth = getAuth(app);
+    
+    import * as admin from 'firebase-admin';
+import * as fs from 'fs';
+import * as csv from 'csv-parser';
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: 'https://newuielibrary.firebaseio.com'
+});
+
+
+fs.createReadStream('path/to/your/file.csv')
+  .pipe(csv())
+  .on('data', (row) => {
+    const studentId = row['Student ID'];
+    const campusEmail = row['Campus Email Address'];
+    const userId = row['User ID'];
+
+    auth.createUser({
+      email: campusEmail,
+      password: studentId,
+      uid: userId
+    })
+    .then((userRecord) => {
+      console.log(`User created: ${userRecord.uid}`);
+    })
+    .catch((error) => {
+      console.error(`Error creating user: ${error}`);
+    });
+  })
+  .on('end', () => {
+    console.log('CSV file processed');
+  });
+        
+    </script>
+    </body>
+    </html>

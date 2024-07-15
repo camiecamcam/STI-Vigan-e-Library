@@ -1,0 +1,89 @@
+
+
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Import CSV/XLSX to Firebase</title>
+    <style>
+        body {
+        font-family: Arial, sans-serif;
+        }
+    </style>
+    </head>
+    <body>
+    <h1>Import CSV/XLSX to Firebase</h1>
+    <button id="import-button">Import CSV/XLSX file</button>
+    <div id="status"></div>
+
+    <script type="module">
+import * as XLSX from 'https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js';
+
+            import { getFirestore, collection, onSnapshot, getDocs, query, where,} from "https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore.js";
+            import { getStorage, ref, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-storage.js";
+            import { getAuth, sendEmailVerification } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-auth.js";
+            import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-auth.js";
+            import { getDatabase } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-database.js";
+        
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-app.js";
+
+    const firebaseConfig = {
+    apiKey: "AIzaSyDeHsOH9pXEAEYNvk29bGi6Ap_rgQ0ouhE",
+    authDomain: "newuielibrary.firebaseapp.com",
+    projectId: "newuielibrary",
+    storageBucket: "newuielibrary.appspot.com",
+    messagingSenderId: "948677801002",
+    appId: "1:948677801002:web:94f241260e9ed8de4cff53"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const usersRef = collection(db, 'users1');
+    const auth = getAuth(app);
+    
+
+        // Function to import CSV or XLSX file
+        async function importFile(file) {
+    const reader = new FileReader();
+    reader.onload = async () => {
+        const data = reader.result;
+        const workbook = read(data, { type: "binary" });
+        const sheetName = workbook.SheetNames[0];
+        const worksheet = workbook.Sheets[sheetName];
+        const dataArr = utils.sheet_to_json(worksheet);
+
+        // Loop through each row in the data array
+        dataArr.forEach((row) => {
+            const idNumber = row["Student ID"];
+            const email = row["Campus Email Address"];
+
+            // Add user to Firebase Authentication
+            auth.createUserWithEmailAndPassword(email, "password").then((userCredential) => {
+                const user = userCredential.user;
+                // Add user data to Firebase Realtime Database
+                usersRef.child(user.uid).set({
+                    idNumber,
+                    email,
+                });
+            });
+        });
+    };
+    reader.readAsBinaryString(file);
+}
+
+        // Add event listener to the import button
+        document.getElementById("import-button").addEventListener("click", () => {
+        const fileInput = document.createElement("input");
+        fileInput.type = "file";
+        fileInput.accept = ".csv,.xlsx";
+        fileInput.addEventListener("change", () => {
+            const file = fileInput.files[0];
+            importFile(file);
+        });
+        fileInput.click();
+        });
+    </script>
+    </body>
+    </html>

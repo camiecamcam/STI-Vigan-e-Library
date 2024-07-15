@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="bg-[#01579B] text-white p-4  flex justify-between items-center ">
+        <div class="text-xl font-semibold">Dashboard</div>
+        <div class="flex items-center space-x-2">
+            <img src="https://placehold.co/40x40" alt="search" class="w-8 h-8 rounded-full hover:bg-gray-100 hover:scale-110 transition duration-300 ease-in-out cursor-pointer" />
+            <img src="https://placehold.co/40x40" alt="notification" class="w-8 h-8 rounded-full hover:bg-gray-100 hover:scale-110 transition duration-300 ease-in-out cursor-pointer" />
+            <div class="relative">
+                <img src="https://placehold.co/40x40" alt="chat notification" class="w-8 h-8 rounded-full hover:bg-gray-100 hover:scale-110 transition duration-300 ease-in-out cursor-pointer" />
+                <span class="absolute top-0 right-0 block w-1.5 h-1.5 bg-gray-500 rounded-full"></span>
+            </div>
+            <img src="https://placehold.co/40x40" alt="message" class="w-8 h-8 rounded-full hover:bg-gray-100 hover:scale-110 transition duration-300 ease-in-out cursor-pointer" />
+            <img src="https://placehold.co/40x40" alt="flag" class="w-8 h-8 rounded-full hover:bg-gray-100 hover:scale-110 transition duration-300 ease-in-out cursor-pointer" />
+            <img src="https://placehold.co/40x40" alt="theme toggle" class="w-8 h-8 rounded-full hover:bg-gray-100 hover:scale-110 transition duration-300 ease-in-out cursor-pointer" />
+            <img src="https://placehold.co/40x40" alt="profile" class="w-8 h-8 rounded-full hover:bg-gray-100 hover:scale-110 transition duration-300 ease-in-out cursor-pointer" />
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="fixed flex flex-col h-screen bg-[#2C384A] text-white lg:w-72">
+        <div class="flex items-center justify-center py-10">
+            <span class="fixed  text-xl">STI Vigan E-Library</span>
+        </div>
+        <div class="flex justify-center  ">
+            <img src="../image/sti logo 4 (2).png"  width="170px"  alt="STI Logo" />
+        </div>
+        <div class="mt-4">
+            <p class="px-4 py-2 text-xl font-semibold ">Navigation</p>
+            <nav class="mt-2">
+                <a href="#" class="flex items-center px-8 py-6 hover:bg-zinc-700">
+                    <img src="https://placehold.co/40x40" alt="Others Icon" class="h-10 w-10"/>
+                    <span class="ml-12">Dashboard</span>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+                </a>
+                <a href="#" class="flex items-center px-8 py-6 hover:bg-zinc-700">
+                    <img src="https://placehold.co/40x40" alt="Others Icon" class="h-10 w-10"/>
+                    <span class="ml-12">Catalog</span>
+                    <svg class="ml-auto h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </a>
+                <a href="#" class="flex items-center px-8 py-6 hover:bg-zinc-700">
+                    <img src="https://placehold.co/40x40" alt="Others Icon" class="h-10 w-10"/>
+                    <span class="ml-12">Circulation</span>
+                    <svg class="ml-auto h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </a>
+                <a href="#" class="flex items-center px-8 py-6 hover:bg-zinc-700">
+                    <img src="https://placehold.co/40x40" alt="Others Icon" class="h-10 w-10"/>
+                    <span class="ml-12">Reports</span>
+                    <svg class="ml-auto h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </a>
+                <a href="#" class="flex items-center px-8 py-6 hover:bg-zinc-700">
+                    <img src="https://placehold.co/40x40" alt="Others Icon" class="h-10 w-10"/>
+                    <span class="ml-12">Others</span>
+                    <svg class="ml-auto h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Cards -->
+    <html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="p-6 bg-zinc-50 dark:bg-zinc-800">
+  <div class="mb-6">
+    <h1 class="text-3xl font-bold text-zinc-900 dark:text-zinc-100">Hello, <span class="text-red-500">Arafat!</span></h1>
+    <p class="text-zinc-600 dark:text-zinc-400">Jan 12, 2023 | Thursday, 11:00 AM</p>
+  </div>
+  <div class="flex flex-wrap gap-4">
+    <div class="bg-white dark:bg-zinc-700 shadow rounded-lg p-4 flex items-center space-x-4 w-full sm:w-auto flex-grow">
+      <div>
+        <h2 class="text-2xl font-bold text-zinc-900 dark:text-zinc-100">1223</h2>
+        <p class="text-zinc-600 dark:text-zinc-400">Total Visitors</p>
+      </div>
+      <div class="p-2 bg-red-100 dark:bg-red-500 rounded-full">
+        <img src="https://placehold.co/32x32" alt="Icon 1" />
+      </div>
+    </div>
+    <div class="bg-white dark:bg-zinc-700 shadow rounded-lg p-4 flex items-center space-x-4 w-full sm:w-auto flex-grow">
+      <div>
+        <h2 class="text-2xl font-bold text-zinc-900 dark:text-zinc-100">740</h2>
+        <p class="text-zinc-600 dark:text-zinc-400">Borrowed Books</p>
+      </div>
+      <div class="p-2 bg-red-100 dark:bg-red-500 rounded-full">
+        <img src="https://placehold.co/32x32" alt="Icon 2" />
+      </div>
+    </div>
+    <div class="bg-white dark:bg-zinc-700 shadow rounded-lg p-4 flex items-center space-x-4 w-full sm:w-auto flex-grow">
+      <div>
+        <h2 class="text-2xl font-bold text-zinc-900 dark:text-zinc-100">22</h2>
+        <p class="text-zinc-600 dark:text-zinc-400">Overdue Books</p>
+      </div>
+      <div class="p-2 bg-red-100 dark:bg-red-500 rounded-full">
+        <img src="https://placehold.co/32x32" alt="Icon 3" />
+      </div>
+    </div>
+    <div class="bg-white dark:bg-zinc-700 shadow rounded-lg p-4 flex items-center space-x-4 w-full sm:w-auto flex-grow">
+      <div>
+        <h2 class="text-2xl font-bold text-zinc-900 dark:text-zinc-100">60</h2>
+        <p class="text-zinc-600 dark:text-zinc-400">New Members</p>
+      </div>
+      <div class="p-2 bg-red-100 dark:bg-red-500 rounded-full">
+        <img src="https://placehold.co/32x32" alt="Icon 4" />
+      </div>
+    </div>
+  </div>
+  <div class="mt-6">
+    <select class="border border-zinc-300 dark:border-zinc-600 rounded-lg px-4 py-2 text-zinc-700 dark:text-zinc-300 bg-white dark:bg-zinc-700">
+      <option>This Week</option>
+      <option>Last Week</option>
+      <option>This Month</option>
+      <option>Last Month</option>
+    </select>
+  </div>
+</div>
+  </body>
+</html>
+
+    <!-- Bottom Bar -->
+    <div class="fixed bottom-0 w-full bg-zinc-900 py-2 px-4 flex justify-end items-center">
+        <button class="bg-[#ED4627] text-white py-1 px-3 rounded">Log-out</button>
+    </div>
+
+    <!-- Chat Heads Notification -->
+    <div class="fixed bottom-16 right-8 flex flex-col space-y-4" id="chatheadsnotif">
+        <div class="relative">
+            <img src="https://placehold.co/40x40" alt="User 1" class="rounded-full border-2 border-white"/>
+            <div class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-white"></div>
+        </div>
+    </div>
+
+    <div class="mb-16"></div>
+</body>
+</html>

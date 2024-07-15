@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+  </head>
+  <div class="sidebar">
+    <div class="logo">STI VIGAN E-LIBRARY</div>
+    <img src="../image/sti logo 4 (2).png" alt="STI Logo" />
+    <nav>
+        <a href="#">
+            <img src="../image/home.png" alt="Others Icon" />
+            <span>Dashboard</span>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 9l-7 7-7-7"/>
+            </svg>
+        </a>
+        <a href="#">
+            <img src="../image/catalog.png" alt="Others Icon" />
+            <span>Catalog</span>
+            <svg viewBox="0 0 24 24" >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+        </a>
+      
+        <a href="#">
+            <img src="../image/reports.png" alt="Others Icon" />
+            <span>Reports</span>
+            <svg viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+        </a>
+        <a href="#">
+            <img src="../image/others.png" alt="Others Icon" />
+            <span>Others</span>
+            <svg viewBox="0 0 24 24" >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+        </a>
+    </nav>
+</div>
+
+  <body>
+    <div class="top-bar">
+      <div class="title">Dashboard</div>
+      <div class="search-bar" id="search-bar">
+        <input type="search" id="search-input" placeholder="Search...">
+        
+      </div>
+      <div class="icons">
+       
+        
+        <a href="#" id="search-link">
+          <img src="../image/search-icon-1024x1024-hd1pcvqu (1).png" alt="search" id="search-icon" />
+        </a>
+        <img src="../image/notification-bell-icon-free-vector.png" alt="search" />
+        <div class="notification">
+          <img src="../image/message-notification-01-icon-2048x2046-oh7klsn8.png" width="50px" height="100px"  alt="chat notification" />
+          
+          <span> </span>
+        </div>
+        <img src="../image/YH5TFCE1QY-preview.png" alt="profile" />
+      </div>
+    </div>
+   
+
+    
+
+    <div class="fixed bottom-0 w-full bg-zinc-900 py-2 px-4 flex justify-end items-center">
+      <button id="logoutbutton" class="bg-[#ED4627] text-white py-1 px-3 rounded" >Log-out</button>
+    </div>
+
+    <!--This is the main content-->
+    <div class="main-content">
+      <html>
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <script src="https://cdn.tailwindcss.com"></script>
+        </head>
+      
+     
+    
+    </body>
+
+
+<!-- Search-->
+  
+
+
+
+
+  <div id="logout"  style="display:none">
+
+    <div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+    <div class="bg-white dark:bg-zinc-800 rounded-lg shadow-lg w-11/12 sm:w-96 p-4">
+        <div class="flex justify-between items-center border-b border-red-200 pb-2">
+            <h2 class="text-red-600 dark:text-red-400 text-lg font-semibold">Log out</h2>
+            <button class="text-zinc-600 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200" id="changepassword"   >×</button>
+        </div>
+        <div class="flex items-center py-4">
+            <img aria-hidden="true" alt="alert icon" src="../image/set-of-error-icon-information-logo-illustration-vector.png" height="80px" width="80px" class="rounded-full mr-4  " crossorigin="anonymous">
+            <div>
+                <h3 class="text-lg font-semibold text-red-600 dark:text-red-400">Are You Sure you want to logout?</h3>
+                <p class="text-zinc-600 dark:text-zinc-300"></p>
+            </div>
+        </div>
+        <div class="flex justify-end space-x-2 mt-4">
+          <button  class="bg-white dark:bg-zinc-700 text-zinc-800 dark:text-zinc-300 border border-zinc-300 dark:border-zinc-600 rounded-lg py-2 px-4"  id="changepassword1"    >Cancel</button>
+          <button class="bg-red-600 text-white rounded-lg py-2 px-4" id="ok-btn" onclick="location.href='http://127.0.0.1:5500/index/indexloading.html'">Log me out</button>
+          </div>
+    </div>
+</div>
+</div>
+
+  <style>
+     .top-bar {
+        background-color: #01579B;
+        color: #FFFFFF;
+        padding: 5px;
+        margin-top: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .top-bar .title {
+        font-size: 2rem;
+        margin-left: 290px;
+        font-weight: 600;
+    }
+    .top-bar .icons {
+    display: flex;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 20px;
+    align-items: center;
+    gap: 2rem;
+}
+
+
+    .top-bar .icons img {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+        cursor: pointer;
+    }
+
+    .top-bar .icons img:hover {
+        transform: scale(1.3);
+    }
+
+ 
+
+    .top-bar .icons .notification {
+        position: relative;
+    }
+
+    .top-bar .icons .notification span {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 1rem;
+        height: 1rem;
+        background-color: #0dff00;
+        border-radius: 50%;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: auto;
+        left: 0;
+        height: 600vh;
+        width: 260px;
+        margin-top: auto;
+        background-color: #2C384A;
+        color: #FFFFFF;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-height: 100vh;
+        padding-bottom: 10px;
+        scrollbar-width: thin; /* for Firefox */
+        -ms-overflow-style: -ms-autohiding-scrollbar; /* for IE and Edge */
+    }
+
+    .sidebar .logo {
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+
+    .sidebar img {
+        width: 170px;
+        margin-bottom: 1rem;
+    }
+
+    .sidebar nav {
+        margin-top: 2rem;
+    }
+  
+
+    .sidebar nav a {
+        display: flex;
+        align-items: center;
+        padding: 2rem 1rem;
+        color: #FFFFFF;
+        text-decoration: none;
+        transition: background-color 0.3s ease-in-out;
+    }
+   
+
+    .sidebar nav a img {
+        width: 40px;
+        height: 40px;
+        margin-right: 1rem;
+        margin-top: 20px;
+    }
+
+    .sidebar nav a span {
+        font-size: 1rem;
+        font-weight: 500;
+    }
+
+    .sidebar nav svg {
+        width: 100px;
+        height: 24px;
+        fill: #FFFFFF;
+        stroke: #FFFFFF;
+        stroke-width: 2;
+        margin-left: auto;
+    }
+
+    .main-content {
+        margin-left: 260px;
+        padding-left: 40px;
+        padding-right: 20px;
+        padding-bottom: 70px;
+        margin-top: 1px;
+    }
+
+    .card {
+        background-color: #FFFFFF;
+        padding: 1rem;
+        border: 1px solid #CCCCCC;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .card h2 {
+        margin-top: 0;
+    }
+
+    #chatheadsnotif {
+    transition: transform 0.3s ease-in-out;
+  }
+
+  #chatheadsnotif:hover {
+    transform: scale(1.2);
+  }
+
+  #chatheadsnotif.expanded {
+    transform: scale(1.5);
+  }
+
+  #chatheadsnotif.expanded #chatheads {
+    width: 80px;
+    height: 80px;
+  }
+
+  #chatheadsnotif.expanded .absolute {
+    bottom: -10px;
+    right: -10px;
+  }
+    
+  </style>
+<style>
+  #book-icon {
+  transition: transform 0.5s; /* add transition effect */
+}
+
+#book-icon:hover {
+  transform: scale(1.1); /* scale up by 10% on hover */
+}
+
+
+
+
+
+.search-bar {
+  width: 300px;
+  display:none ;
+}
+
+#search-input {
+  flex: 2;
+  width: 400px;
+  padding: 10px;
+  color: black;
+  font-size: 12px;
+  border: none;
+  border-radius: 10px 10px 10px 10px;
+}
+
+
+
+.show {
+  display: block; /* show the search bar wh en the show class is added */
+}
+
+
+
+
+ </style>
+
+
+
+
+
+
+
+<!-- Search-->
+
+
+
+
+
+
+
+
+<!-- Firebase Function-->
+ 
+<script src="https://cdn.firebase.com/libs/firebasejs/9.6.1/firebase-app.js" defer></script>
+      <script src="https://cdn.firebase.com/libs/firebasejs/9.6.1/firebase-auth.js" defer></script>
+      <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-app.js";
+        import { getFirestore, collection, onSnapshot, getDocs, query, where } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore.js";
+        import { getStorage, ref, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-storage.js";
+        import { getAuth, sendEmailVerification } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-auth.js";
+        import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-auth.js";
+      
+        const firebaseConfig = {
+  apiKey: "AIzaSyCbWyVqhZdWL5tGF5Y2YXRpY5PJLC0ee6M",
+  authDomain: "elibrarylogin-3d7e6.firebaseapp.com",
+  projectId: "elibrarylogin-3d7e6",
+  storageBucket: "elibrarylogin-3d7e6.appspot.com",
+  messagingSenderId: "872832392728",
+  appId: "1:872832392728:web:10489984713141407ded6d"
+};
+
+
+
+        //logoutbutton on dashboard
+     // Select the logout button and the modal
+const logoutButton = document.getElementById('logoutbutton'); // assume this is the ID of the logout button
+const logoutModal = document.getElementById('logout');
+
+// Add an event listener to the logout button
+logoutButton.addEventListener('click', function() {
+    // Toggle the display property of the modal
+    logoutModal.style.display = 'block'; // show the modal
+});
+
+// Add an event listener to the cancel button
+document.getElementById('changepassword').addEventListener('click', function() {
+    // Toggle the display property of the modal
+    logoutModal.style.display = 'none'; // hide the modal
+});
+
+document.getElementById('changepassword1').addEventListener('click', function() {
+    // Toggle the display property of the modal
+    logoutModal.style.display = 'none'; // hide the modal
+});
+
+  //logoutbutton on pop up
+  
+
+
+//search function
+const searchIcon = document.getElementById('search-icon');
+const searchBar = document.getElementById('search-bar');
+
+searchIcon.addEventListener('click', () => {
+  searchBar.classList.toggle('show'); /* toggle the show class */
+});
+
+  </script>
+
+
+</body>
+</html>

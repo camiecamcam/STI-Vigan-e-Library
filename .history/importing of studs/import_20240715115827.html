@@ -1,0 +1,86 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Import CSV/XLSX to Firebase</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <h1>Import CSV/XLSX to Firebase</h1>
+  <button id="import-button">Import CSV/XLSX file</button>
+  <div id="status"></div>
+
+  <script>
+    // Import the necessary libraries
+    import * as firebase from "https://cdn.firebase.com/libs/firebasejs/8.6.1/firebase-app.js";
+    import "https://cdn.firebase.com/libs/firebasejs/8.6.1/firebase-database.js";
+    import "https://cdn.firebase.com/libs/firebasejs/8.6.1/firebase-auth.js";
+    import * as XLSX from "https://cdn.jsdelivr.net/npm/xlsx@0.17.3/dist/xlsx.full.min.js";
+
+    // Initialize Firebase
+    const firebaseConfig = {
+  apiKey: "AIzaSyCbWyVqhZdWL5tGF5Y2YXRpY5PJLC0ee6M",
+  authDomain: "elibrarylogin-3d7e6.firebaseapp.com",
+  projectId: "elibrarylogin-3d7e6",
+  storageBucket: "elibrarylogin-3d7e6.appspot.com",
+  messagingSenderId: "872832392728",
+  appId: "1:872832392728:web:10489984713141407ded6d"
+};
+    // Get a reference to the Firebase Realtime Database
+    const db = firebase.database();
+    const usersRef = db.ref("users1");
+
+    // Get a reference to the Firebase Authentication
+    const auth = firebase.auth();
+
+    // Function to import CSV or XLSX file
+    async function importFile(file) {
+      const reader = new FileReader();
+      reader.onload = async () => {
+        const data = reader.result;
+        const workbook = XLSX.read(data, { type: "binary" });
+        const sheetName = workbook.SheetNames[0];
+        const worksheet = workbook.Sheets[sheetName];
+        const dataArr = XLSX.utils.sheet_to_json(worksheet);
+
+        // Loop through each row in the data array
+        dataArr.forEach((row) => {
+          const idNumber = row["idNumber"];
+          const email = row["email"];
+
+          // Add user to Firebase Authentication
+          auth.createUserWithEmailAndPassword(email, "password").then((userCredential) => {
+            const user = userCredential.user;
+            // Add user data to Firebase Realtime Database
+            usersRef.child(user.uid).set({
+              idNumber,
+              email,
+            });
+          });
+        });
+      };
+      reader.readAsBinaryString(file);
+    }
+
+    // Add event listener to the import button
+    document.getElementById("import-button").addEventListener("click", () => {
+      const fileInput = document.createElement("input");
+      fileInput.type = "file";
+      fileInput.accept = ".csv,.xlsx";
+      fileInput.addEventListener("change", () => {
+        const file = fileInput.files[0];
+        importFile(file);
+      });
+      fileInput.click();
+    });
+  </script>
+</body>
+</html>

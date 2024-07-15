@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <html>
+        <head>
+
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <script src="https://cdn.tailwindcss.com"></script>
+        </head>
+        <body>
+          <div class="flex h-screen">
+        <div class="w-full md:w-1/2 bg-white flex flex-col justify-center px-8 lg:px-24">
+          <div class="flex items-center mb-8" margin-bottom="100px">
+            <img src="../image/Screenshot 2024-06-19 125614.jpg" alt="logo" width="80" height="80" class="mr-2">
+            <span class="text-3xl font-semibold"> STI Vigan E-Library </span>
+          </div>
+ 
+
+          <h2 class="text-3xl font-bold mb-2">Login</h2>
+          <p class="text-zinc-600 mb-6 text-1xl ">Welcome, Please login in to your account</p>
+          <div class="border-b-2 border-blue-500 w-16 mb-6"></div>
+          <form id="login-form" autocomplete="off" class="space-y-6">
+            <div>
+              <label for="email" class="block text-sm font-medium text-zinc-700">Campus Email Address</label>
+              <input  placeholder="Example: LastName.123456@vigan.sti.edu.ph"   id="campusemail" name="email" type="email" autocomplete="email" required class="mt-1 block w-full px-3 py-2 border border-zinc-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+            </div>
+            <div>
+              <label for="password" class="block text-sm font-medium text-zinc-700">Password</label>
+              <input  placeholder="Your ID Number: 2000123456"  id="campuspassword" name="password" type="password" autocomplete="current-password" required class="mt-1 block w-full px-3 py-2 border border-zinc-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="text-sm">
+                <a href="#" id="forgotPassword" class="font-medium text-blue-600 hover:text-blue-500 float-right">Forgot Password?</a>
+            </div>
+            </div>
+            <div class="flex space-x-4">
+              <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Login</button>
+            </div>
+          </form>
+          <div class="mt-6 text-center">
+            
+            <div class="flex justify-center space-x-4 mt-2">
+             
+            </div>
+          </div>
+        </div>
+        <div class="hidden md:block md:w-1/2 bg-blue-500">
+          <img src="../image/vigan.jpg" alt="Illustration" class="h-full w-full object-cover">
+        </div>
+      </div>
+
+      <div id="errorAccountDetails" style="display: none;">
+        <div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <div class="bg-white dark:bg-zinc-800 rounded-lg shadow-lg w-11/12 sm:w-96 p-4">
+            <div class="flex justify-between items-center border-b border-red-200 pb-2">
+              <h2 class="text-red-600 dark:text-red-400 text-lg font-semibold">Error</h2>
+              <button class="text-zinc-600 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200" onclick="document.getElementById('errorAccountDetails').style.display = 'none';">×</button>
+            </div>
+            <div class="flex items-center py-4">
+              <img aria-hidden="true" alt="alert icon" src="https://placehold.co/50" class="rounded-full mr-4" crossorigin="anonymous">
+              <div>
+                <h3 class="text-lg font-semibold text-red-600 dark:text-red-400" >Check your Account Details</h3>
+                <p class="text-zinc-600 dark:text-zinc-300">Check your Campus Email Address and Password </p>
+                <p class="text-zinc-600 dark:text-zinc-300">If Forgot Password click Forgot Password </p>
+
+              </div>
+            </div>
+            <div class="flex justify-end space-x-2 mt-4">
+              <button class="bg-red-600 text-white rounded-lg py-2 px-4 hover:bg-red-900" id="okbutton">Ok</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+</div>
+
+
+<div id="errorAccountDetails2" style="display: none;">
+  <div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+    <div class="bg-white dark:bg-zinc-800 rounded-lg shadow-lg w-11/12 sm:w-96 p-4">
+      <div class="flex justify-between items-center border-b border-red-200 pb-2">
+        <h2 class="text-red-600 dark:text-red-400 text-lg font-semibold">Error</h2>
+        <button class="text-zinc-600 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200" onclick="document.getElementById('errorAccountDetails').style.display = 'none';">×</button>
+      </div>
+      <div class="flex items-center py-4">
+        <img aria-hidden="true" alt="alert icon" src="https://placehold.co/50" class="rounded-full mr-4" crossorigin="anonymous">
+        <div>
+          <h3 class="text-lg font-semibold text-red-600 dark:text-red-400" >Your Account must be connected to school account</h3>
+          <p class="text-zinc-600 dark:text-zinc-300" id="erroranyemail"></p>
+        </div>
+      </div>
+      <div class="flex justify-end space-x-2 mt-4">
+        <button class="bg-red-600 text-white rounded-lg py-2 px-4 hover:bg-red-900" id="okbutton">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+      <script src="https://cdn.firebase.com/libs/firebasejs/9.6.1/firebase-app.js" defer></script>
+      <script src="https://cdn.firebase.com/libs/firebasejs/9.6.1/firebase-auth.js" defer></script>
+      <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-app.js";
+        import { getFirestore, collection, onSnapshot, getDocs, query, where } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore.js";
+        import { getStorage, ref, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-storage.js";
+        import { getAuth, sendEmailVerification } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-auth.js";
+        import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-auth.js";
+      
+        const firebaseConfig = {
+          apiKey: "AIzaSyCbWyVqhZdWL5tGF5Y2YXRpY5PJLC0ee6M",
+  authDomain: "elibrarylogin-3d7e6.firebaseapp.com",
+  projectId: "elibrarylogin-3d7e6",
+  storageBucket: "elibrarylogin-3d7e6.appspot.com",
+  messagingSenderId: "872832392728",
+  appId: "1:872832392728:web:10489984713141407ded6d"
+};
+      
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app); // Initialize the auth service
+      
+        const loginForm = document.getElementById('login-form');
+      
+        loginForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const campusemail = document.getElementById('campusemail').value.trim();
+  const campuspassword = document.getElementById('campuspassword').value.trim();
+
+  if (!campusemail.endsWith('@vigan.sti.edu.ph')) {
+    if (campusemail.endsWith('@gmail.com')) {
+      document.getElementById('errorAccountDetails2').style.display = 'block';
+      const inputText = `You entered: ${campusemail}`;
+      document.getElementById('erroranyemail').textContent = `Your Account must be connected to school account. ${inputText}`;
+    } else {
+      document.getElementById('errorAccountDetails').style.display = 'block';
+      document.getElementById('erroranyemail').textContent = 'Invalid email address. Please use your @vigan.sti.edu.ph email.';
+    }
+    return;
+  }
+
+
+  signInWithEmailAndPassword(auth, campusemail, campuspassword)
+    .then((userCredential) => {
+      // Signed in successfully
+      const user = userCredential.user;
+      console.log("Signed in user:", user.uid);
+
+      // Check if email is verified
+      if (!user.emailVerified) {
+        // Send email verification
+        sendEmailVerification(user)
+          .then(() => {
+            console.log("Email verification sent to:", user.email);
+          })
+          .catch((error) => {
+            console.error("Error sending email verification:", error);
+          });
+      } else {
+        console.log("Email is already verified.");
+
+        // Check if account is registered in school premises
+        const db = getFirestore();
+        const usersRef = collection(db, 'users');
+        const q = query(usersRef, where('email', '==', user.email));
+        getDocs(q).then((querySnapshot) => {
+          if (querySnapshot.empty) {
+            // Account is not registered in school premises
+            document.getElementById('errorAccountDetails').style.display = 'block';
+            document.getElementById('erroranyemail').textContent = 'Account not registered in school premises.'; // Popup 1
+          } else {
+            // Redirect to chatgpt.com
+            window.location.href = "https://chatgpt.com/";
+          }
+        });
+      }
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.error("Firebase Authentication Error:", errorCode, errorMessage);
+      document.getElementById('errorAccountDetails').style.display = 'block';
+      document.getElementById('erroranyemail').textContent = `Error: ${errorMessage}`; // Popup 2
+    });
+});
+      
+        document.getElementById("forgotPassword").addEventListener("click", function(event) {
+          event.preventDefault();
+          window.location.href = "http://127.0.0.1:5500/indexforgotPassword/forgotpassword.html";
+        });
+      
+        document.addEventListener("DOMContentLoaded", function() {
+          if (localStorage.getItem('emailSent') === 'true') {
+            const messageElement = document.createElement('p');
+            messageElement.textContent = 'Check your email!';
+            document.body.appendChild(messageElement);
+            localStorage.removeItem('emailSent'); // Remove the flag
+          }
+        });
+      
+        document.getElementById('okbutton').addEventListener('click', function() {
+          document.getElementById('errorAccountDetails').style.display = 'none';
+        });
+      </script>
+  </body>
+  </html>
